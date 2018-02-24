@@ -21,13 +21,18 @@ int main ( void )
 	int n(0);
 	std::cout << "Informe o limite para o calculo da Sequencia de Fibonacci\n";
 	std::cin >> n;
-	std::cout << "Limite: f(" << n << ")" << std::endl;
+	std::cout << "Limite: "<< n << std::endl;
 
 	for ( auto i(0) ; i < n ; i++ )
 	{
-        fibo(n);
-		std::cout << fibo(i+1) << std::endl;
-	}
+        fibo(i+1);
+        if( fibo(i+1) < n )
+        {
+            
+		std::cout << fibo(i + 1) << std::endl;
+	
+        }    
+    }
 
 	return ( 0 );
 }

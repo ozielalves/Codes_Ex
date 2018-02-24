@@ -5,12 +5,14 @@ int main ( void )
 
 	int A[19];   
 	std::cout << "Informe os 20 numeros:\n";
+// Indices para percorrer o vetor
 	auto i(0);
-
-	for ( i = 0 ; i <= 19 ; i++) // Entrada dos 20 numeros
+    auto j(0);
+    
+	for ( i = 0 ; i < 20 ; i++ ) // Entrada dos 20 numeros
 	{
 	
-	    std::cin >> A[r];
+	    std::cin >> A[i];
 	
 	}    
 
@@ -23,7 +25,26 @@ int main ( void )
 	    std::cout << " " << A[i] << "  \n\n";
 
 	}
-w
+
+// Invertendo o Vetor A	
+	for ( i = 0, j = 19 ; i < 20 and j >= 0 ; i++, j--)
+	{
+	    
+	    A[i] = A[j];
+	    
+	}
+	
+	std::cout << "O novo vetor e: \n";
+
+
+	for ( i = 0 ; i < 20 ; i++) // Saida do novo vetor
+	{
+	    
+	    std::cout << " " << A[i] << "  \n\n";
+
+	}
+	
+
 	return (0);
 
 }	

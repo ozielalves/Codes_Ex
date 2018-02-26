@@ -1,57 +1,27 @@
 #include <iostream>
 
-int main ( void )
+int *filter( int *first, int *last )
 {
-
-	int vet[10];
-	int *inicio;
-	int *fim;
-
-	std::cout << "Digite a lista de numeros a ser filtrada:\n";
-	std::cin >> vet[10];
-
-	//inicio = vet[0];
-	//fim = vet[10];
-
-	for ( auto i(0) ; i < 11 ; i++ )
-	{	
-		inicio = vet[i];
-		if ( *inicio < 0 or *inicio == 0)
-		{
-
-			delete *inicio;
-
-		} else {
-		
-			inicio++;
-		
-		}
-	}
-
-	for ( auto i(0) ; i >= 0 ; i-- )
-	{	
-		fim = vet[i];
-		if ( *fim < 0 or *fim == 0)
-		{
-
-			delete *fim;
-
-		} else {
-			
-
-			fim--;
-		
-		}
-	}
-
-	std::cout << "O vetor filtrado e: " << std::endl;
+	int contagem = 0;
 	
-	for ( auto i(0) ; i < 11 ; i++ )
+	// Primeiro faremos uma contagem de quantos elementos irão restar
+	for( int *i = first ; i < last ; i++ )
 	{
-
-		std::cout << vet[i] " " << std::endl;
-
+		
+		if( *i > 0 ) contagem++;	
+	
 	}
 
-	return (0);
-}	
+	int *buf = ( int * ) calloc ( contagem , sizeof(int) );
+	
+	// Agora podemos preencher a lista com os elementos válidos
+	for( auto i(0) , *j = first ; j < last ; j++ )
+	{
+	
+		if( *j > 0 ) buf[i++] = *j;
+	
+	}
+
+	return buf;
+}
+
